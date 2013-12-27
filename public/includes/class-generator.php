@@ -87,7 +87,7 @@ class Contact_Form_Generator {
 			'max'				=> false, 	// Date & number inputs only
 			'multiple'			=> false, 	// For input files only
 			'step'				=> false,
-			'rows' 				=> 3,		// For textarea
+			'rows' 				=> false,		// For textarea
 		);
 
 		/**
@@ -249,6 +249,9 @@ class Contact_Form_Generator {
 			if( 'no' == get_post_meta( $this->form_id, '_ucf_labels', true ) && !in_array( $nolabel, $verbs['class_label'] ) )
 				array_push( $verbs['class_label'], $nolabel );
 
+			if( 'horizontal' == get_post_meta( $this->form_id, '_ucf_layout', true ) )
+				array_push( $verbs['class_label'], 'col-sm-2 control-label' );
+
 			/* Now we merge the array and add the correct syntax */
 			$verbs['class_label'] = array_filter( $verbs['class_label'] );
 			if( !empty( $verbs['class_label'] ) ) {
@@ -290,6 +293,21 @@ class Contact_Form_Generator {
 			$temp = ob_get_contents();
 
 			ob_end_clean();
+
+			/* In case we have form horizontal, modify the markup */
+			if( 'horizontal' == get_post_meta( $this->form_id, '_ucf_layout', true ) ) {
+
+				preg_match_all( '/<input.*>/imU', $temp, $matches );
+
+				if( isset( $matches[0][0] ) ) {
+
+					$input 		= $matches[0][0];
+					$horizontal = apply_filters( 'ucf_form_horizontal_class', 'col-sm-10' );
+					$temp 		= str_replace( $matches[0][0], "<div class='$horizontal'>$input</div>", $temp );
+
+				}
+
+			}
 
 			/**
 			 * EXPERIMENTAL
