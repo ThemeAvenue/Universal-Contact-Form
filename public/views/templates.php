@@ -3,7 +3,7 @@ function ucf_get_field_text( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="text" class="{class}" id="{id}" {args} {value}>
+		<input type="text" class="{class}" id="{id}" {args} value="{value}">
 	</div>
 
 <?php }
@@ -11,7 +11,7 @@ function ucf_get_field_email( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="email" class="{class}" id="{id}" {args} {value}>
+		<input type="email" class="{class}" id="{id}" {args} value="{value}">
 	</div>
 
 <?php }
@@ -19,7 +19,7 @@ function ucf_get_field_url( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="url" class="{class}" id="{id}" {args} {value} placeholder="http://">
+		<input type="url" class="{class}" id="{id}" {args} value="{value}" placeholder="http://">
 	</div>
 
 <?php }
@@ -71,7 +71,7 @@ function ucf_get_field_hexcolor( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="text" class="{class}" id="{id}" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" title="Please enter a valid hexadecimal code. Format is #CCC or #CCCCCC" {args} {value}>
+		<input type="text" class="{class}" id="{id}" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" title="Please enter a valid hexadecimal code. Format is #CCC or #CCCCCC" {args} value="{value}">
 	</div>
 
 <?php }
@@ -79,7 +79,7 @@ function ucf_get_field_creditcard( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="text" class="{class}" id="{id}" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" title="Please enter a valid Credit Card Number" {args} {value}>
+		<input type="text" class="{class}" id="{id}" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" title="Please enter a valid Credit Card Number" {args} value="{value}">
 	</div>
 
 <?php }
@@ -87,7 +87,7 @@ function ucf_get_field_creditcarddamex( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="text" class="{class}" id="{id}" pattern="[0-9]{4} *[0-9]{6} *[0-9]{5}" title="Please enter a Amex Credit Card Number" {args} {value}>
+		<input type="text" class="{class}" id="{id}" pattern="[0-9]{4} *[0-9]{6} *[0-9]{5}" title="Please enter a Amex Credit Card Number" {args} value="{value}">
 	</div>
 
 <?php }

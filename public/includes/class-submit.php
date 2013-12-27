@@ -77,35 +77,17 @@ class UCF_Submit {
 	 */
 	public function process_submission() {
 
-		/**
-		 * 1. Get fields list with generator class
-		 * 2. try to add required sanitization type to the field's function
-		 * 3. Sanitize value
-		 * 4. Check for required fields
-		 * 5. If missing fields
-		 * 		5.1. Save provided values
-		 * 		5.2. Save missing field ID(s)
-		 * 		5.3. Redirect to form, add notification and fill fields values
-		 * 6. Get email template (compatibility with Dev7studio plugin?)
-		 * 7. Add content
-		 * 8. Send with wp_mail()
-		 *
-		 * @TODO
-		 * - Add small templating system for the e-mail layout
-		 * - Add notification (success / failure) bafore the form
-		 */
-
 		/* Get the form values and validate them */
 		$form_fields = $this->check_fields();
 
 		/* Prepare read only redirection */
-		$redirect = add_query_arg( array( 'send' => 'true' ), get_permalink( $_POST['pid'] ) );
+		$redirect = add_query_arg( array( 'send' => 'true', 'fid' => $this->form_id ), get_permalink( $_POST['pid'] ) );
 
 		/* If all required fields aren't submitted, go back to the form */
 		if( !empty( $this->missing ) ) {
 
 			$this->save_submitted_values();
-			$redirect = add_query_arg( array( 'send' => 'missing' ), get_permalink( $_POST['pid'] ) );
+			$redirect = add_query_arg( array( 'send' => 'missing', 'fid' => $this->form_id ), get_permalink( $_POST['pid'] ) );
 
 		} else {
 
@@ -114,7 +96,7 @@ class UCF_Submit {
 
 			/* Check if e-mail was sent */
 			if( !$send )
-				$redirect = add_query_arg( array( 'send' => 'false' ), get_permalink( $_POST['pid'] ) );
+				$redirect = add_query_arg( array( 'send' => 'false', 'fid' => $this->form_id ), get_permalink( $_POST['pid'] ) );
 
 		}
 
@@ -283,8 +265,8 @@ class UCF_Submit {
 		/* Get required values */
 		$to 	  = get_bloginfo( 'admin_email' );
 		$subject  = sprintf( __( 'E-mail from %s' ), get_bloginfo( 'name' ) );
-		$sender   = isset( $form_fields['name'] ) ? $form_fields['name'] : get_bloginfo( 'name' );
-		$email    = isset( $form_fields['email'] ) ? $form_fields['email'] : $to;
+		$sender   = isset( $form_fields['name']['value'] ) ? $form_fields['name']['value'] : get_bloginfo( 'name' );
+		$email    = isset( $form_fields['email']['value'] ) ? $form_fields['email']['value'] : $to;
 
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";

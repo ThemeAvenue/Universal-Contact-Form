@@ -339,7 +339,7 @@ class Contact_Form_Generator {
 			 */
 			if( isset( $_SESSION['ucf_values'][$name] ) ) {
 
-				$temp = str_replace( '{value}', 'value="' . $_SESSION['ucf_values'][$name] . '"', $temp );
+				$temp = str_replace( '{value}', $_SESSION['ucf_values'][$name]['value'], $temp );
 
 			} else {
 				$temp = str_replace( '{value}', '', $temp );
@@ -431,7 +431,7 @@ class Contact_Form_Generator {
 		/**
 		 * Handle notifications
 		 */
-		if( isset( $_GET['send'] ) ) {
+		if( isset( $_GET['send'] ) && isset( $_GET['fid'] ) && $form_id == $_GET['fid'] ) {
 
 			switch( $_GET['send'] ):
 
