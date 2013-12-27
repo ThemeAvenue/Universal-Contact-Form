@@ -1,36 +1,64 @@
 <?php
+/**
+ * Text field template
+ *
+ * @since 1.0.0
+ * @param  (array) $field Field data
+ */
 function ucf_get_field_text( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="text" class="{class}" id="{id}" {args} value="{value}">
+		<input type="text" class="{class}" {args} value="{value}">
 	</div>
 
 <?php }
+
+/**
+ * Email field template
+ *
+ * @since 1.0.0
+ * @param  (array) $field Field data
+ */
 function ucf_get_field_email( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="email" class="{class}" id="{id}" {args} value="{value}">
+		<input type="email" class="{class}" {args} value="{value}">
 	</div>
 
 <?php }
+
+/**
+ * URL field template
+ *
+ * @since 1.0.0
+ * @param  (array) $field Field data
+ */
 function ucf_get_field_url( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<input type="url" class="{class}" id="{id}" {args} value="{value}" placeholder="http://">
+		<input type="url" class="{class}" {args} value="{value}" placeholder="http://">
 	</div>
 
 <?php }
+
+/**
+ * Textarea template
+ *
+ * @since 1.0.0
+ * @param  (array) $field Field data
+ */
 function ucf_get_field_textarea( $field ) { ?>
 
 	<div class="{class_container}">
 		<label for="{id}" {class_label}>{label}</label>
-		<textarea class="{class}" id="{id}" {args}>{value}</textarea>
+		<textarea class="{class}" {args}>{value}</textarea>
 	</div>
 
 <?php }
+
 function ucf_get_field_select( $field ) { ?>
 
 	<div class="{class_container}">
@@ -45,6 +73,7 @@ function ucf_get_field_select( $field ) { ?>
 	</div>
 
 <?php }
+
 function ucf_get_field_selectmultiple( $field ) { ?>
 
 	<div class="{class_container}">
@@ -59,6 +88,7 @@ function ucf_get_field_selectmultiple( $field ) { ?>
 	</div>
 
 <?php }
+
 function ucf_get_field_date( $field ) { ?>
 
 	<div class="{class_container}">
@@ -67,6 +97,7 @@ function ucf_get_field_date( $field ) { ?>
 	</div>
 
 <?php }
+
 function ucf_get_field_hexcolor( $field ) { ?>
 
 	<div class="{class_container}">
@@ -75,6 +106,7 @@ function ucf_get_field_hexcolor( $field ) { ?>
 	</div>
 
 <?php }
+
 function ucf_get_field_creditcard( $field ) { ?>
 
 	<div class="{class_container}">
@@ -83,6 +115,7 @@ function ucf_get_field_creditcard( $field ) { ?>
 	</div>
 
 <?php }
+
 function ucf_get_field_creditcarddamex( $field ) { ?>
 
 	<div class="{class_container}">
