@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Universal Contact Form\n"
-"POT-Creation-Date: 2013-12-27 12:13+0700\n"
-"PO-Revision-Date: 2013-12-27 14:41+0700\n"
+"POT-Creation-Date: 2014-01-02 13:59+0700\n"
+"PO-Revision-Date: 2014-01-02 14:00+0700\n"
 "Last-Translator: Julien Liabeuf <julien@liabeuf.fr>\n"
 "Language-Team: ThemeAvenue <web@themeavenue.net>\n"
 "Language: en\n"
@@ -69,23 +69,27 @@ msgstr "Non"
 
 #: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/admin/class-ucf-admin.php:244
 msgid "Autocomplete"
-msgstr ""
+msgstr "Auto-complétion"
 
 #: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/admin/class-ucf-admin.php:246
 msgid "On"
-msgstr ""
+msgstr "On"
 
 #: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/admin/class-ucf-admin.php:247
 msgid "Off"
-msgstr ""
+msgstr "Off"
 
 #: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/admin/class-ucf-admin.php:253
 msgid "Validate"
-msgstr ""
+msgstr "Valider"
 
 #: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/admin/class-ucf-admin.php:262
 msgid "Form Extra Class(es)"
 msgstr "Classe(s) CSS additionelle(s)"
+
+#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-custom-post-type.php:88
+msgid "Add New"
+msgstr "Ajouter"
 
 #: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-custom-post-type.php:89
 msgid "Add New "
@@ -116,27 +120,27 @@ msgstr "Rechercher"
 msgid "No "
 msgstr "Non"
 
-#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:440
+#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:458
 msgid "Your message has been sent successfully."
 msgstr "Votre message à bien été envoyé."
 
-#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:447
+#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:465
 msgid ""
 "An error occured while trying to send your message. Please try again later."
 msgstr "Une erreur s'est produite lors de l'envoi. Merci de réessayer."
 
-#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:454
+#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:472
 msgid ""
 "You didn't fill the form correctly. Please check the highlighted fields."
 msgstr ""
 "Vous n'avez pas rempli le formulaire correctement. Merci de vérifier les "
 "champs surlignés."
 
-#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:470
+#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-generator.php:488
 msgid "Submit"
 msgstr "Envoyer"
 
-#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-submit.php:285
+#: C:\wamp\www\plugins-dev\wp-content\plugins\universal-contact-form/public/includes/class-submit.php:267
 #, php-format
 msgid "E-mail from %s"
-msgstr ""
+msgstr "Nouvel e-mail de %s"
