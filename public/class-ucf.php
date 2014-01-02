@@ -73,6 +73,7 @@ class Universal_Contact_Form {
 		// Load public-facing style sheet and JavaScript.
 		// add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		// add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'init', array( $this, 'register_post_types' ), 11 );
 
 		/**
 		 * Instanciate the submission class
@@ -254,7 +255,20 @@ class Universal_Contact_Form {
 		$domain = $this->plugin_slug;
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
-		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
+		load_textdomain( $domain, UCF_PLUGIN_PATH . 'languages/' . $domain . '-' . $locale . '.mo' );
+
+	}
+
+		/**
+	 * Register custom post types
+	 *
+	 * @since 1.0.0
+	 */
+	public function register_post_types() {
+
+		// Form
+		if( class_exists( 'TAV_Custom_Post_Type' ) )
+			$form = new TAV_Custom_Post_Type( __( 'Form', 'ucf' ), 'form', array( 'supports' => array( 'title', 'editor' ) ) );
 
 	}
 

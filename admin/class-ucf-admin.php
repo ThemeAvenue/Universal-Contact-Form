@@ -61,9 +61,6 @@ class Universal_Contact_Form_Admin {
 		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_slug . '.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 
-		// Register post types
-		$form = new TAV_Custom_Post_Type( __( 'Form', 'ucf' ), array( 'supports' => array( 'title', 'editor' ) ) );
-
 		add_action( 'add_meta_boxes', array( $this, 'form_settings_metabox' ) );
 		add_action( 'save_post', array( $this, 'save_post_meta' ) );
 
