@@ -29,23 +29,23 @@ if( !class_exists( 'TAV_Custom_Post_Type' ) ) {
 		 */
 		protected static $instance = null;
 
-		public function __construct( $name = false, $args = array(), $labels = array() ) {
+		public function __construct( $name = false, $id = null, $args = array(), $labels = array() ) {
 
 			/**
 			 * A name for the custom post type is the minimum required.
 			 * If no name is defined, we can't proceed with the registration.
 			 */
-			if( $name ) {
+			if( $name && null != $id ) {
 
 				$this->cpt_name 	   = sanitize_text_field( $name );
 				$this->cpt_name_plural = $this->cpt_name . 's';
-				$this->cpt_slug 	   = sanitize_title( $name );
+				$this->cpt_slug 	   = $id;
 				$this->labels 		   = $labels;
 				$this->args 		   = $args;
 
 				if( !post_type_exists( $this->cpt_slug ) ) {
 
-					add_action( 'init', array( $this, 'register_post_type' ) );
+					add_action( 'init', array( $this, 'register_post_type' ), 15 );
 
 				}
 
@@ -83,9 +83,9 @@ if( !class_exists( 'TAV_Custom_Post_Type' ) ) {
 
 			/* Set the default labels */
 			$labels = array(
-				'name'                  => _x( $plural, 'post type general name' ),  
-				'singular_name'         => _x( $singular, 'post type singular name' ),  
-				'add_new'               => _x( 'Add New', strtolower( $singular ) ),  
+				'name'                  => $plural, 'post type general name',  
+				'singular_name'         => $singular,  
+				'add_new'               => __( 'Add New', strtolower( $singular ) ),  
 				'add_new_item'          => __( 'Add New ' . $singular ),  
 				'edit_item'             => __( 'Edit ' . $singular ),  
 				'new_item'              => __( 'New ' . $singular ),  
