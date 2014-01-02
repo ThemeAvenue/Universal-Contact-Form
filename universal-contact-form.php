@@ -30,6 +30,11 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /*----------------------------------------------------------------------------*
+ * Define plugin path and URI
+ *----------------------------------------------------------------------------*/
+define( 'UCF_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+
+/*----------------------------------------------------------------------------*
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-ucf.php' );
@@ -42,11 +47,6 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/views/templates.php' );
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
  * When the plugin is deleted, the uninstall.php file is loaded.
- *
- * @TODO:
- *
- * - replace Plugin_Name with the name of the class defined in
- *   `class-plugin-name.php`
  */
 register_activation_hook( __FILE__, array( 'Universal_Contact_Form', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'Universal_Contact_Form', 'deactivate' ) );
@@ -63,13 +63,7 @@ add_action( 'plugins_loaded', array( 'Universal_Contact_Form', 'get_instance' ) 
  * Dashboard and Administrative Functionality
  *----------------------------------------------------------------------------*/
 
-/*
- * @TODO:
- *
- * - replace `class-plugin-admin.php` with the name of the plugin's admin file
- * - replace Plugin_Name_Admin with the name of the class defined in
- *   `class-plugin-name-admin.php`
- *
+/**
  * If you want to include Ajax within the dashboard, change the following
  * conditional to:
  *
