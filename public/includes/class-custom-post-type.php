@@ -82,6 +82,10 @@ if( !class_exists( 'TAV_Custom_Post_Type' ) ) {
 			$plural   = $this->cpt_name_plural;
 
 			/* Set the default labels */
+
+			/**
+			 * @todo Translation doesn't work well. Find a good way to have everything translated
+			 */
 			$labels = array(
 				'name'                  => $plural, 'post type general name',  
 				'singular_name'         => $singular,  
